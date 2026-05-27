@@ -8,9 +8,9 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/lasertag_TFT-main/lasertag_TFT-main/include",
-                "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/lasertag_TFT-main/lasertag_TFT-main/src",
-                "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/lasertag_TFT-main/lasertag_TFT-main/.pio/libdeps/lolin_s2_mini/TFT_eSPI",
+                "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/IR_Game/LilygoTFT/lasertag_TFT-main/include",
+                "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/IR_Game/LilygoTFT/lasertag_TFT-main/src",
+                "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/IR_Game/LilygoTFT/lasertag_TFT-main/.pio/libdeps/lolin_s2_mini/TFT_eSPI",
                 "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src",
                 "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                 "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/FS/src",
@@ -197,7 +197,7 @@
                 "C:/Users/School/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s2/dio_qspi/include",
                 "C:/Users/School/.platformio/packages/framework-arduinoespressif32/cores/esp32",
                 "C:/Users/School/.platformio/packages/framework-arduinoespressif32/variants/lolin_s2_mini",
-                "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/lasertag_TFT-main/lasertag_TFT-main/lib/TFT_eSPI",
+                "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/IR_Game/LilygoTFT/lasertag_TFT-main/lib/TFT_eSPI",
                 "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src",
                 "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/AsyncUDP/src",
                 "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src",
@@ -232,9 +232,9 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/lasertag_TFT-main/lasertag_TFT-main/include",
-                    "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/lasertag_TFT-main/lasertag_TFT-main/src",
-                    "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/lasertag_TFT-main/lasertag_TFT-main/.pio/libdeps/lolin_s2_mini/TFT_eSPI",
+                    "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/IR_Game/LilygoTFT/lasertag_TFT-main/include",
+                    "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/IR_Game/LilygoTFT/lasertag_TFT-main/src",
+                    "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/IR_Game/LilygoTFT/lasertag_TFT-main/.pio/libdeps/lolin_s2_mini/TFT_eSPI",
                     "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src",
                     "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                     "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/FS/src",
@@ -421,7 +421,7 @@
                     "C:/Users/School/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s2/dio_qspi/include",
                     "C:/Users/School/.platformio/packages/framework-arduinoespressif32/cores/esp32",
                     "C:/Users/School/.platformio/packages/framework-arduinoespressif32/variants/lolin_s2_mini",
-                    "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/lasertag_TFT-main/lasertag_TFT-main/lib/TFT_eSPI",
+                    "C:/Users/School/OneDrive - Hogeschool VIVES/School/Game Tech/IR_Game/LilygoTFT/lasertag_TFT-main/lib/TFT_eSPI",
                     "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src",
                     "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/AsyncUDP/src",
                     "C:/Users/School/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src",

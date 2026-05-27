@@ -17,6 +17,7 @@ static constexpr int TFT_BACKLIGHT_PIN = 33;
 static constexpr int HUD_RX_PIN = 18;
 static const char *HUD_PREFIX = "HUD:";
 
+// Houdt bij wat er op het scherm moet staan.
 struct GameState {
     char name[NAME_MAX_LEN + 1] = "Maarten";
     uint16_t teamColor = TFT_NAVY;
@@ -33,6 +34,7 @@ char s_line[UART_LINE_MAX];
 size_t s_len = 0;
 bool s_lineReady = false;
 
+// Zet een gewone kleur om naar het formaat van het TFT.
 uint16_t rgb888To565(uint32_t rgb) {
     uint8_t r = (rgb >> 16) & 0xFF;
     uint8_t g = (rgb >> 8) & 0xFF;
@@ -40,6 +42,7 @@ uint16_t rgb888To565(uint32_t rgb) {
     return static_cast<uint16_t>(((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3));
 }
 
+// Leest een kleur zoals #FF0000.
 bool parseHexColor(const char *value, uint16_t &outColor) {
     if (!value || !*value) return false;
 
@@ -61,6 +64,7 @@ bool parseHexColor(const char *value, uint16_t &outColor) {
     return true;
 }
 
+// Kiest donkere of lichte tekst volgens de achtergrond.
 bool computeTextColor(uint16_t bgColor) {
     uint8_t r5 = (bgColor >> 11) & 0x1F;
     uint8_t g6 = (bgColor >> 5) & 0x3F;
@@ -72,11 +76,13 @@ bool computeTextColor(uint16_t bgColor) {
     return brightness > 140U;
 }
 
+// Zorgt dat levens nooit hoger zijn dan het maximum.
 void clampHitpoints(GameState &st) {
     if (st.maxHitpoints == 0) st.maxHitpoints = 1;
     if (st.hitpoints > st.maxHitpoints) st.hitpoints = st.maxHitpoints;
 }
 
+// Haalt spaties weg aan het begin en einde.
 char *trimInPlace(char *text) {
     if (!text) return text;
 
@@ -88,12 +94,14 @@ char *trimInPlace(char *text) {
     return text;
 }
 
+// Start het TFT-scherm.
 void renderInit() {
     tft.begin();
     tft.setRotation(1);
     tft.setTextDatum(TL_DATUM);
 }
 
+// Tekent naam, kleur en levens op het scherm.
 void render(GameState &st) {
     clampHitpoints(st);
 
@@ -149,6 +157,7 @@ void render(GameState &st) {
     }
 }
 
+// Leest tekstregels die van de STM32 komen.
 void linkPoll() {
     while (Serial1.available() && !s_lineReady) {
         int c = Serial1.read();
@@ -167,6 +176,7 @@ void linkPoll() {
     }
 }
 
+// Verwerkt alleen regels die met HUD: beginnen.
 void parseHudLine(char *line, GameState &st) {
     if (!line || strncmp(line, HUD_PREFIX, strlen(HUD_PREFIX)) != 0) return;
 
@@ -213,7 +223,7 @@ void parseHudLine(char *line, GameState &st) {
     if (strcasecmp(key, "HP") == 0 || strcasecmp(key, "LIFE") == 0 || strcasecmp(key, "HITPOINTS") == 0) {
         char *slash = strchr(value, '/');
         long current = strtol(value, nullptr, 10);
-        if (current < 0) current = 0;
+        if (current < 0) current = 0;&
         if (slash) {
             long maximum = strtol(slash + 1, nullptr, 10);
             if (maximum > 0 && maximum <= 255) st.maxHitpoints = (uint8_t)maximum;
@@ -227,6 +237,7 @@ void parseHudLine(char *line, GameState &st) {
 
 }  // namespace
 
+// Start seriele poort, backlight en scherm.
 void setup() {
 #if ARDUINO_USB_CDC_ON_BOOT
     Serial.begin(115200);
@@ -244,6 +255,7 @@ void setup() {
     render(state);
 }
 
+// Blijft luisteren naar nieuwe HUD-regels.
 void loop() {
     linkPoll();
     if (s_lineReady) {
